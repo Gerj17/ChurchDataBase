@@ -49,7 +49,7 @@ for row in range(2, max_rows):
 
 def update_key_list():
     # updates the text list with titles of the columns form the excel document 
-    with open("Responses.txt",'r') as r:
+    with open("Responses.txt",'w') as r:
         for key, value in rspns[1].items():
             r.write(key)
             r.write('\n')
@@ -59,4 +59,4 @@ def other ():
     for key , value in rspns[3].items():
         print(key,"--------> ", value)
 
-#update_key_list
+#update_key_list()

@@ -72,21 +72,24 @@ ParishAndMassCenter = {
 
 
 catholic_parishes = []  # list of keys in ParishAndMassCenter
+
 #  Store Parishes in list
 for key, value in ParishAndMassCenter.items():
     catholic_parishes.append(str(key))
 
 rgstn_sheet = wb[catholic_parishes[1]]
 
+
+
 temp = []
 for col in range(2,(rgstn_sheet.max_column)):
-    var = utils.get_column_letter(col)
+    len_columns = utils.get_column_letter(col)
 
     final_value = None
 
-    value = rgstn_sheet[(var + '1')].value # get value in top cell
+    value = rgstn_sheet[(len_columns + '1')].value # get value in top cell
     #temp.append(value)
-    sub_value = rgstn_sheet[(var + '2')].value  # get value in seconday cell
+    sub_value = rgstn_sheet[(len_columns + '2')].value  # get value in seconday cell
     if sub_value == None:
         # sub value is none
         final_value = value
@@ -102,7 +105,7 @@ for col in range(2,(rgstn_sheet.max_column)):
             temp.append(value)
             final_value = f'{value} : {sub_value}'
 
-    print(var + "1", str(final_value.strip()))
+    print(len_columns + "1", str(final_value.strip()))
     with open("database.txt",'a') as doc:
         doc.write(str(final_value.strip()))
         doc.write('\n')
