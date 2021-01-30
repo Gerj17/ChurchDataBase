@@ -1,6 +1,7 @@
 from pathlib import Path as p
 import openpyxl
 from openpyxl import utils
+import time
 
 loc_excel_docs = p.cwd().joinpath('ExcelDocs')  # Create a path to directory with documents
 
@@ -109,6 +110,8 @@ for col in range(2,(rgstn_sheet.max_column)):
 
 
 print(temp)
+time.sleep(20)
+
 
 
 
