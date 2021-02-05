@@ -17,10 +17,20 @@ except pyodbc.Error as e:
     print("there was an error" , e)
     
 
-def enter_data(con,info):
+def enter_data(connection,values):
     cursor = con.cursor()
 
     #data in tuple 
 
-    cursor.executemany(f'INSERT INTO {} VALUES (?,?,?)', info) 
+    cursor.execut(f'INSERT INTO database{}\
+                         VALUES{}  )
     con.commit()
+
+
+
+    
+
+
+
+
+
